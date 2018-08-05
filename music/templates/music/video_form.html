@@ -1,5 +1,5 @@
 {% extends 'music/base.html' %}
-{% block title %}Add Songs{% endblock %}
+{% block title %}Add Videos{% endblock %}
 
 {% block body %}
     <style>
@@ -10,7 +10,6 @@
     }
     </style>
     <div id="add_container">
-
         <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% include 'music/form-template.html' %}

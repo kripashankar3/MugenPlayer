@@ -3,6 +3,13 @@
 {% block  albums_active %}active{% endblock %}
 
 {% block body %}
+    <style>
+    #promt{
+        background-color: #5bc0de;
+        color: white;
+        border-radius:4px;
+    }
+    </style>
 <div id="add_container">
     <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}

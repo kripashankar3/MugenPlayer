@@ -6,9 +6,10 @@
 
 {% load static from staticfiles %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"  type="text/css" href="{% static 'music/bootstrap.min.css'%}"/>
-<link rel="stylesheet"  type="text/css" href="{% static 'music/bootstrap-responsive.min.css'%}"/>
-      <link rel="stylesheet" type="text/css" href="{% static 'music/layout.css'%}">
+<link rel="stylesheet"  type="text/css" href="{% static 'css/bootstrap.min.css'%}"/>
+<link rel="stylesheet"  type="text/css" href="{% static 'css/bootstrap-responsive.min.css'%}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css'%}">
+<script src="{% static 'js/front-end.js' %}"></script>
 </head>
 
 <body>
@@ -28,12 +29,12 @@
                <div class="collapse navbar-collapse" id="topNavBar">
                    <ul class="nav navbar-nav">
                        <li>
-                           <a href="{% url 'music:index' %}"><span class="glyphicon glyphicon-cd" ></span>&nbsp; Albums</a>
+                           <a href="{% url 'music:index' %}" class="selected" ><span class="glyphicon glyphicon-cd" ></span>&nbsp;Albums</a>
                        </li>
-                       <li>
+                       <li class="selected">
                            <a href="{% url 'music:video' %}"><span class="glyphicon glyphicon-facetime-video" ></span>&nbsp; Videos</a>
                        </li>
-                       <li class="">
+                       <li class="selected">
                            <a href="{% url 'music:song' %}"><span class="glyphicon glyphicon-music"></span>&nbsp; Songs</a>
                        </li>
                    </ul>

@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from music.file_type import AudioFile, VideoFile
 
 
 class Album(models.Model):
@@ -18,7 +19,11 @@ class Album(models.Model):
 class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     song_title = models.CharField(max_length=100)
-    audio = models.FileField(max_length=500)
+    audio = AudioFile (
+        upload_to='media',
+        content_types=['audio/mp3', 'audio/mpeg', 'audio/ogg'],
+        max_upload_size=5242880
+    )
     album_logo = models.FileField(max_length=500, default='img')
 
     def get_absolute_url(self):
@@ -31,7 +36,11 @@ class Song(models.Model):
 class Video(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     video_title = models.CharField(max_length=100)
-    video = models.FileField(max_length=500)
+    video = VideoFile(
+        upload_to='media',
+        content_types=['video/mp4', 'video/mkv', 'video/ogg'],
+        max_upload_size=104857600
+    )
 
     def get_absolute_url(self):
         return reverse('music:detail', kwargs={'pk': self.album_id})
